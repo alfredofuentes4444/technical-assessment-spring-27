@@ -5,8 +5,9 @@ import App from './App.jsx'
 import 'leaflet/dist/leaflet.css'
 import TransitMap from './TransitMap.jsx'
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <TransitMap />
+    <App />
   </StrictMode>,
 )
