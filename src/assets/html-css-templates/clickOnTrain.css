@@ -1,6 +1,28 @@
+/* We load the Helvetica Neue weights we need */
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/HelveticaNeueRoman.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/HelveticaNeueMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/HelveticaNeueBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
     background-color: #c5db34;
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .innerbox {
@@ -44,4 +66,67 @@ body {
     height: 1px;
     background-color: #0e7e31;
     padding: 10px;
+}
+
+/* We lay the three stops out in a row */
+.stops {
+  display: flex;
+  margin-top: 15px;
+}
+
+/* Each stop is a column, and the line is drawn behind its dot */
+.stop {
+  flex: 1;
+  min-width: 110px;
+  position: relative;
+  text-align: center;
+  padding-top: 24px;
+}
+
+/* We draw the green line across the top of each stop */
+.stop::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #00843d;
+}
+
+/* We make the past segment gray */
+.stop.past::before {
+  background-color: #bbbbbb;
+}
+
+/* We center the dot on the line */
+.dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 3px solid #00843d;
+  z-index: 1;
+}
+
+.stop.past .dot {
+  border-color: #bbbbbb;
+}
+
+.stop-label {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.stop-name {
+  font-size: 18px;
+}
+
+.stop-time {
+  font-size: 12px;
+  color: #666666;
 }
